@@ -5,7 +5,7 @@
 ** Login   <login_x@epitech.eu>
 **
 ** Started on  Tue Mar 29 18:02:16 2016 John Doe
-** Last update Sun Apr  3 16:55:03 2016 John Doe
+** Last update Tue Apr  5 11:21:55 2016 John Doe
 */
 
 #include <stdlib.h>
@@ -41,7 +41,7 @@ int		count_char(char *str, char elem)
 {
   static int	i = 0;
 
-  while (str[i] != '\0' && str[i] != elem)
+  while (i <= my_strlen(str) && str[i] != elem)
     i++;
   return (i + 1);
 }
@@ -58,7 +58,7 @@ char	**my_str_to_wordtab(char *str, char elem)
   k = 0;
   words = count_word(str, elem) + 1;
   ret = create_wordtab(words);
-  while (str[i] != '\0')
+  while (i <= my_strlen(str))
     {
       ret[k] = malloc(sizeof(char) * (count_char(str, elem) + 2));
       j = 0;
@@ -72,6 +72,6 @@ char	**my_str_to_wordtab(char *str, char elem)
       i++;
       k++;
     }
-  ret[k] = '\0';
+  ret[k] = NULL;
   return (ret);
 }
